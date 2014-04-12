@@ -73,9 +73,7 @@ public class MainListActivity extends ListActivity{
 					Reader reader = new  InputStreamReader(inputStream);
 					
 					int contentLength = connection.getContentLength();
-					System.out.println(contentLength);
 					char[] charArray = new char[contentLength];
-					System.out.println(charArray);
 					reader.read(charArray);
 					String responseData = new String(charArray);
 					
