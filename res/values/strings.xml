@@ -4,7 +4,8 @@
     <string name="app_name">BlogReader</string>
     <string name="action_settings">Settings</string>
 	<string name="no_items">No items to disploy!</string>
-	
+	<string name="error_title">Ops! sorry.</string>
+	<string name="error_message">An error occurred but the deploy tidying</string>
 	<string-array name="android_names">
 	    <item>Android beta</item>
 		<item>Android 1.0</item>
