@@ -34,9 +34,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainListActivity extends ListActivity{
-	public static final int NUMBER_OF_POSTS = 20;
+	public static final String URL = "http://192.168.1.2:3009/mobile/example.json";
 	public static final String TAG = MainListActivity.class.getSimpleName();
-	public static final String URL = "http://blog.teamtreehouse.com/api/get_recent_summary/?count=";
 	protected JSONObject mBlogData;
 	protected ProgressBar mProgressBar;
 	
@@ -47,7 +46,6 @@ public class MainListActivity extends ListActivity{
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_list);
-		
 		mProgressBar = (ProgressBar) findViewById(R.id.progressBar1);
 		
 		if (isNetworkAvailable()){
@@ -107,7 +105,7 @@ public class MainListActivity extends ListActivity{
 		@Override
 		protected JSONObject doInBackground(Object... arg0) {
 			try {
-				URL blogFeedUrl = new URL(URL + NUMBER_OF_POSTS);	
+				URL blogFeedUrl = new URL(URL);	
 				HttpURLConnection connection = (HttpURLConnection) blogFeedUrl.openConnection();
 				connection.connect();
 
@@ -120,8 +118,8 @@ public class MainListActivity extends ListActivity{
 					int contentLength = connection.getContentLength();
 					char[] charArray = new char[contentLength];
 					reader.read(charArray);
-					String responseData = new String(charArray);
 					
+					String responseData = new String(charArray);
 					jsonResponse = new JSONObject(responseData);
 				} else {
 					Log.i(TAG, "Unsucessful HTTP resposnse Code: " + responseCode);
@@ -139,6 +137,7 @@ public class MainListActivity extends ListActivity{
 		
 		@Override
 		protected void onPostExecute(JSONObject result) {
+			System.out.println(result);
 			mBlogData = result;
 			handleBlogResponse();
 		}

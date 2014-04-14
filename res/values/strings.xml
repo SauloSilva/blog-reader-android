@@ -6,7 +6,7 @@
     <string name="no_items">No items to disploy!</string>
     <string name="error_title">Ops! sorry.</string>
     <string name="error_message">An error occurred but the deploy tidying</string>
-
+	<string name="action_share">Compartilhar</string>
     <string-array name="android_names">
         <item>Android beta</item>
         <item>Android 1.0</item>
@@ -23,5 +23,6 @@
 
     <string name="title_activity_blog_web_view">Blog Post</string>
     <string name="hello_world">Hello world!</string>
+    <string name="share_chooser_title">How do want to share?</string>
 
 </resources>
